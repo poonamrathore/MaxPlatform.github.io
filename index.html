@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link  rel="stylesheet" href="salesforce-lightning-design-system.css">
+    <link  rel="stylesheet" href="overriding.css">
+    <link  rel="stylesheet" href="all.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="script.js"></script>
+</head>
+<body class="background-gray">
+  <!-- Page Header -->
+  <div class="slds-card header background-white">
+     <div class="slds-grid slds-wrap slds-p-bottom_medium slds-p-top_xxx-small">
+         <div class="slds-col slds-size_1-of-6 mobile-screen">
+            <button id="hamburger-btn" class="hamburger-button" onclick="showSideBar()">
+                <label>
+                  <i class="fas fa-bars" ></i>
+                </label>
+            </button>
+         </div>
+         <div class="slds-col slds-large-size_2-of-12 slds-align_absolute-center slds-p-bottom_x-small slds-p-top_xx-small">
+            <span class="header-title">
+                <p class="font-size1">MAX</p>
+                <p class="font-size3">PLATFORM</p>
+              </span>
+         </div>
+         <div class="slds-col slds-large-size_7-of-12" >
+            
+        </div>
+        <div class="slds-col slds-large-size_3-of-12 slds-p-top_large slds-p-bottom_large header-element" >
+            <span class="large-screen__right-border slds-p-left_small slds-p-right_small">Dashboard </span>
+            <i class="fas fa-bell large-screen__right-border slds-p-left_small slds-p-right_small"></i>
+            <i class="fas fa-user-circle slds-p-left_small slds-p-right_small"></i>
+            Poonam Rathore<i class="fas fa-angle-down slds-p-left_small slds-p-right_small"></i></span>
+        </div> 
+     </div>
+  </div>
+  <!--wrapper-->
+    <div class="wrapper background-gray">
+        <!--hamburger side bar-->
+        <div id="sidebar"class="side-bar background-dark" >
+            <ul class="side-bar_list">
+                <li class="side-bar_list-items slds-p-bottom_x-large slds-p-top_x-large mobile-screen">
+                <span>
+                    <p class="font-size1">MAX</p>
+                    <p class="font-size3">PLATFORM</p>
+                </span>
+                </li>
+                <li class="side-bar_list-items">
+                <span class=""><a href="">SUMMARY<i class="fas fa-angle-down slds-m-left_medium"></i></a></span>
+                </li>
+                <li class="side-bar_list-items">
+                <span class="slds-align_absolute-left"><a href=""> INVESTMENT<i class="fas fa-angle-down slds-m-left_medium"></i></a> </span>
+                </li>
+                <Li class="side-bar_list-items">
+                <span class="slds-align_absolute-left"><a href="">DOCUMENTS<i class="fas fa-angle-down slds-m-left_medium"></i></a> </span>
+                </Li>
+                <Li class="side-bar_list-items">
+                <span class="slds-align_absolute-left"><a href="">TRANSACTIONS<i class="fas fa-angle-down slds-m-left_medium"></i></a> </span>
+                </Li>
+                <Li class="side-bar_list-items">
+                <span class="slds-align_absolute-left"><a href="">DETAILS <i class="fas fa-angle-down slds-m-left_medium"></i></a></span>
+                </Li>
+            </ul>
+        </div>
+        <!--top-bar -->
+        <div class=" slds-grid slds-gutters top-bar large-screen">
+            <div class="slds-col slds-size_3-of-12 slds-align_absolute-center font-size2 table-font-color__gray slds-p-top_x-large">
+                Investor List
+            </div>
+            <div class="slds-col slds-size_4-of-12 font-size4 table-font-color__gray top-bar_element slds-p-top_x-small slds-p-left_small">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="text-input-id-1"></label>
+                    <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_right">
+                      <i class="fas fa-search slds-icon slds-input__icon slds-input__icon_right"></i>
+                      <input type="text" id="text-input-id-1" placeholder="Search by Name or Email" class="slds-input" />
+                    </div>
+                  </div>
+            </div>
+            <div class="slds-col slds-size_3-of-12 top-bar_element slds-p-top_large slds-p-top_x-small slds-p-left_small">
+                <button class="slds-button slds-button_neutral table-font-color__gray">
+                    Both
+                <i class="fas fa-sort-down slds-p-left_small slds-p-bottom_x-small table-font-color__gray"></i>
+                </button>
+                <button class="slds-button slds-button_neutral table-font-color__gray">
+                    All
+                <i class="fas fa-sort-down slds-p-left_small slds-p-bottom_x-small table-font-color__gray"></i>
+                </button>
+            </div>
+            <div class="slds-col slds-size_2-of-12 top-bar_element slds-p-top_large ">
+                <button class="slds-button slds-button_neutral table-font-color__gray slds-p-top_x-small slds-p-bottom_x-small slds-p-left_small" id="cardView" onclick="showCardView()">
+                    <i class="fas fa-th-large table-font-color__gray"></i>
+                </button>
+                <button class="slds-button slds-button_neutral slds-p-top_x-small slds-p-bottom_x-small slds-p-left_small" id="tableView" onclick="location.reload()">
+                    <i class="fas fa-bars table-font-color__gray"></i>
+                </button>
+                <button class="slds-button slds-button_neutral slds-p-top_x-small slds-p-bottom_x-small slds-p-left_small">
+                    <i class="fas fa-download table-font-color__gray"></i>
+                </button>
+            </div>
+        </div>
+        <!--Invester list view -->
+        <div class="main background-white">
+            <div id="main-grid"class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-p-bottom_small slds-p-top_large" id="card1">
+                    <article class="slds-card slds-p-bottom_small slds-p-top_large slds-m-left_large slds-m-right_large large-screen__card">
+                        <!--Table header for desktop table view-->
+                        <div class="slds-grid slds-wrap large-screen slds-p-bottom_large" id="table-header">
+                            <div class="slds-col slds-large-size_1-of-12">
+                            </div>
+                            <div class="slds-col slds-large-size_3-of-12 table-font-color__gray ">
+                                <span>Name</span>
+                            </div>
+                            <div class="slds-col slds-large-size_2-of-12 table-font-color__gray ">
+                                <span>Total Contribution</span>
+                            </div>
+                            <div class="slds-col slds-large-size_2-of-12 table-font-color__gray ">
+                                <span>Total Distribution</span>
+                            </div>
+                            <div class="slds-col slds-large-size_2-of-12 table-font-color__gray">
+                                <span>Total Balance</span>
+                            </div>
+                            <div class="slds-col slds-large-size_2-of-12 table-font-color__gray ">
+                                <span>Details</span>
+                            </div>
+                        </div>
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-col_bump-right slds-p-left_medium mobile-screen">
+                            <i class="fas fa-ellipsis-h table-font-color__gray "></i>
+                            </div>
+                            <div id="card1-element1" class="slds-col slds-size_1-of-1 slds-large-size_1-of-12 " >
+                                <div class="slds-media__figure slds-align_absolute-center">
+                                    <img class="profile" src="/Users/poonamrathore/Desktop/UI Assignment/images/profile1.jpeg" alt="profile-pic"/>
+                                </div>
+                            </div>
+                            <div id="card1-element2" class="slds-col slds-align_absolute-center slds-size_1-of-1 slds-large-size_3-of-12 table-font-color__black large-screen_table-element">
+                                <span>Ivan Magaihaes</span>
+                            </div>
+                            <div id="card1-element3" class="slds-col slds-align_absolute-center slds-size_1-of-1 mobile-screen table-font-color__gray">
+                                <span>abcdef@xyz.com</span>
+                            </div>
+                            <div id="card1-element4" class="slds-col slds-align_absolute-center slds-size_1-of-1 mobile-screen table-font-color__gray">
+                                <span>Total Contribution</span>
+                            </div>
+                            <div id="card1-element5" class="slds-col slds-align_absolute-center slds-size_1-of-1 slds-large-size_2-of-12 table-font-color__black">
+                                <span>$821,243</span>
+                            </div>
+                            <div id="card1-element6" class="slds-col large-screen slds-large-size_2-of-12 table-font-color__black ">
+                                <span>$821,243</span>
+                            </div>
+                            <div id="card1-element7" class="slds-col large-screen slds-large-size_2-of-12 table-font-color__black">
+                                <span>$821,243</span>
+                            </div>
+                            <div id="card1-element8" class="slds-col slds-large-size_2-of-12 large-screen table-font-color__blue">
+                                <span><i class="far fa-arrow-alt-circle-right"></i>View<i class="fas fa-ellipsis-h  slds-m-left_medium"></i></span>
+                            </div>
+                        </div>
+                        <div id="card1-element9" class="slds-card__footer mobile-screen cardView">
+                            <a class="slds-card__footer-action" href="javascript:void(0);">View All
+                            </a>
+                        </div>
+                    </article>
+                </div>    
+                <div class="slds-col slds-size_1-of-1 slds-p-bottom_small slds-p-top_large" id="card2">
+                    <article class="slds-card slds-p-bottom_small slds-p-top_large slds-m-left_large slds-m-right_large large-screen__card">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-col_bump-right slds-p-left_medium mobile-screen">
+                                <i class="fas fa-ellipsis-h table-font-color__gray "></i>
+                            </div>
+                            <div id="card2-element1" class="slds-col slds-size_1-of-1 slds-large-size_1-of-12" >
+                                <div class="slds-media__figure slds-align_absolute-center">
+                                    <img class="profile" src="/Users/poonamrathore/Desktop/UI Assignment/images/profile2.jpeg" alt="profile-pic"/>
+                                </div>
+                            </div>
+                            <div id="card2-element2" class="slds-col slds-align_absolute-center slds-size_1-of-1 slds-large-size_3-of-12 table-font-color__black large-screen_table-element">
+                                <span>Su Xinyi</span>
+                            </div>
+                            <div id="card2-element3" class="slds-col slds-align_absolute-center slds-size_1-of-1 mobile-screen table-font-color__gray">
+                                <span>abcdef@xyz.com</span>
+                            </div>
+                            <div id="card2-element4" class="slds-col slds-align_absolute-center slds-size_1-of-1 mobile-screen table-font-color__gray">
+                                <span>Total Contribution</span>
+                            </div>
+                            <div id="card2-element5" class="slds-col slds-align_absolute-center slds-size_1-of-1 slds-large-size_2-of-12 table-font-color__black">
+                                <span>$821,243</span>
+                            </div>
+                            <div id="card2-element6" class="slds-col large-screen slds-large-size_2-of-12 table-font-color__black">
+                                <span>$821,243</span>
+                            </div>
+                            <div id="card2-element7" class="slds-col large-screen slds-large-size_2-of-12 table-font-color__black">
+                                 <span>$821,243</span>
+                            </div>
+                            <div id="card2-element8" class="slds-col slds-large-size_2-of-12 large-screen table-font-color__blue">
+                                <span><i class="far fa-arrow-alt-circle-right"></i>View<i class="fas fa-ellipsis-h slds-m-left_medium"></i></span>
+                            </div>
+                        </div>
+                        <div id="card2-element9" class="slds-card__footer mobile-screen">
+                            <a class="slds-card__footer-action" href="javascript:void(0);">View All
+                            </a>
+                        </div>
+                    </article>
+                </div>   
+                <div class="slds-col slds-size_1-of-1 slds-p-bottom_small slds-p-top_large" id="card3">
+                    <article class="slds-card slds-p-bottom_small slds-p-top_large slds-m-left_large slds-m-right_large large-screen__card">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-col_bump-right slds-p-left_medium mobile-screen">
+                                <i class="fas fa-ellipsis-h table-font-color__gray "></i>
+                            </div>
+                            <div id="card3-element1" class="slds-col slds-size_1-of-1 slds-large-size_1-of-12" >
+                                <div class="slds-media__figure slds-align_absolute-center">
+                                    <img class="profile" src="/Users/poonamrathore/Desktop/UI Assignment/images/profile3.jpeg" alt="profile-pic"/>
+                                </div>
+                            </div>
+                            <div id="card3-element2" class="slds-col slds-align_absolute-center slds-size_1-of-1 slds-large-size_3-of-12 table-font-color__black large-screen_table-element">
+                                <span>Ozoemena Somayina</span>
+                            </div>
+                            <div id="card3-element3" class="slds-col slds-align_absolute-center slds-size_1-of-1 mobile-screen table-font-color__gray">
+                                <span>abcdef@xyz.com</span>
+                            </div>
+                            <div id="card3-element4" class="slds-col slds-align_absolute-center slds-size_1-of-1 mobile-screen table-font-color__gray">
+                                <span>Total Contribution</span>
+                            </div>
+                            <div id="card3-element5" class="slds-col slds-align_absolute-center slds-size_1-of-1 slds-large-size_2-of-12 table-font-color__black">
+                                <span>$821,243</span>
+                            </div>
+                            <div id="card3-element6" class="slds-col large-screen slds-large-size_2-of-12 table-font-color__black">
+                                <span>$821,243</span>
+                            </div>
+                            <div id="card3-element7" class="slds-col large-screen slds-large-size_2-of-12 table-font-color__black">
+                                 <span>$821,243</span>
+                            </div>
+                            <div id="card3-element8" class="slds-col slds-large-size_2-of-12 large-screen table-font-color__blue">
+                                <span><i class="far fa-arrow-alt-circle-right"></i>View<i class="fas fa-ellipsis-h slds-m-left_medium"></i></span>
+                            </div>
+                        </div>
+                        <div id="card3-element9" class="slds-card__footer mobile-screen">
+                            <a class="slds-card__footer-action" href="javascript:void(0);">View All
+                            </a>
+                        </div>
+                    </article>
+                </div>    
+                <div class="slds-col slds-size_1-of-1 slds-p-bottom_small slds-p-top_large" id="card4">
+                    <article class="slds-card slds-p-bottom_small slds-p-top_large slds-m-left_large slds-m-right_large large-screen__card">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-col_bump-right slds-p-left_medium mobile-screen">
+                                <i class="fas fa-ellipsis-h table-font-color__gray "></i>
+                            </div>
+                            <div id="card4-element1" class="slds-col slds-size_1-of-1 slds-large-size_1-of-12" >
+                                <div class="slds-media__figure slds-align_absolute-center">
+                                    <img class="profile" src="/Users/poonamrathore/Desktop/UI Assignment/images/profile4.jpeg" alt="profile-pic"/>
+                                </div>
+                            </div>
+                            <div id="card4-element2" class="slds-col slds-align_absolute-center slds-size_1-of-1 slds-large-size_3-of-12 table-font-color__black large-screen_table-element">
+                                <span>Justine Robinson</span>
+                            </div>
+                            <div id="card4-element3" class="slds-col slds-align_absolute-center slds-size_1-of-1 mobile-screen table-font-color__gray">
+                                <span>abcdef@xyz.com</span>
+                            </div>
+                            <div id="card4-element4" class="slds-col slds-align_absolute-center slds-size_1-of-1 mobile-screen table-font-color__gray">
+                                <span>Total Contribution</span>
+                            </div>
+                            <div id="card4-element5" class="slds-col slds-align_absolute-center slds-size_1-of-1 slds-large-size_2-of-12 table-font-color__black">
+                                <span>$821,243</span>
+                            </div>
+                            <div id="card4-element6" class="slds-col large-screen slds-large-size_2-of-12 table-font-color__black">
+                                <span>$821,243</span>
+                            </div>
+                            <div id="card4-element7" class="slds-col large-screen slds-large-size_2-of-12 table-font-color__black">
+                                 <span>$821,243</span>
+                            </div>
+                            <div id="card4-element8" class="slds-col slds-large-size_2-of-12 large-screen table-font-color__blue">
+                                <span><i class="far fa-arrow-alt-circle-right"></i>View<i class="fas fa-ellipsis-h slds-m-left_medium"></i></span>
+                            </div>
+                        </div>
+                        <div id="card4-element9" class="slds-card__footer mobile-screen">
+                            <a class="slds-card__footer-action" href="javascript:void(0);">View All
+                            </a>
+                        </div>
+                    </article>
+                </div>    
+                <div class="slds-col slds-size_1-of-1 slds-p-bottom_small slds-p-top_large" id="card5">
+                    <article class="slds-card slds-p-bottom_small slds-p-top_large slds-m-left_large slds-m-right_large large-screen__card">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-col_bump-right slds-p-left_medium mobile-screen">
+                                <i class="fas fa-ellipsis-h table-font-color__gray "></i>
+                            </div>
+                            <div id="card5-element1" class="slds-col slds-size_1-of-1 slds-large-size_1-of-12" >
+                                <div class="slds-media__figure slds-align_absolute-center">
+                                    <img class="profile" src="/Users/poonamrathore/Desktop/UI Assignment/images/profile5.jpeg" alt="profile-pic"/>
+                                </div>
+                            </div>
+                            <div id="card5-element2" class="slds-col slds-align_absolute-center slds-size_1-of-1 slds-large-size_3-of-12 table-font-color__black large-screen_table-element">
+                                <span>Harrison Phillips</span>
+                            </div>
+                            <div id="card5-element3" class="slds-col slds-align_absolute-center slds-size_1-of-1 mobile-screen table-font-color__gray">
+                                <span>abcdef@xyz.com</span>
+                            </div>
+                            <div id="card5-element4" class="slds-col slds-align_absolute-center slds-size_1-of-1 mobile-screen table-font-color__gray">
+                                <span>Total Contribution</span>
+                            </div>
+                            <div id="card5-element5" class="slds-col slds-align_absolute-center slds-size_1-of-1 slds-large-size_2-of-12 table-font-color__black">
+                                <span>$821,243</span>
+                            </div>
+                            <div id="card5-element6" class="slds-col large-screen slds-large-size_2-of-12 table-font-color__black">
+                                <span>$821,243</span>
+                            </div>
+                            <div id="card5-element7" class="slds-col large-screen slds-large-size_2-of-12 table-font-color__black">
+                                 <span>$821,243</span>
+                            </div>
+                            <div id="card5-element8" class="slds-col slds-large-size_2-of-12 large-screen table-font-color__blue">
+                                <span><i class="far fa-arrow-alt-circle-right"></i>View<i class="fas fa-ellipsis-h slds-m-left_medium"></i></span>
+                            </div>
+                        </div>
+                        <div id="card5-element9" class="slds-card__footer mobile-screen">
+                            <a class="slds-card__footer-action" href="javascript:void(0);">View All
+                            </a>
+                        </div>
+                    </article>
+                </div>    
+                <div class="slds-col slds-size_1-of-1 slds-p-bottom_small slds-p-top_large" id="card6">
+                    <article class="slds-card slds-p-bottom_small slds-p-top_large slds-m-left_large slds-m-right_large large-screen__card">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-col_bump-right slds-p-left_medium mobile-screen">
+                                <i class="fas fa-ellipsis-h table-font-color__gray "></i>
+                            </div>
+                            <div id="card6-element1" class="slds-col slds-size_1-of-1 slds-large-size_1-of-12" >
+                                <div class="slds-media__figure slds-align_absolute-center">
+                                    <img class="profile" src="/Users/poonamrathore/Desktop/UI Assignment/images/profile6.jpeg" alt="profile-pic"/>
+                                </div>
+                            </div>
+                            <div id="card6-element2" class="slds-col slds-align_absolute-center slds-size_1-of-1 slds-large-size_3-of-12 table-font-color__black large-screen_table-element">
+                                <span>Harinder Mondi</span>
+                            </div>
+                            <div id="card6-element3" class="slds-col slds-align_absolute-center slds-size_1-of-1 mobile-screen table-font-color__gray">
+                                <span>abcdef@xyz.com</span>
+                            </div>
+                            <div id="card6-element4" class="slds-col slds-align_absolute-center slds-size_1-of-1 mobile-screen table-font-color__gray">
+                                <span>Total Contribution</span>
+                            </div>
+                            <div id="card6-element5" class="slds-col slds-align_absolute-center slds-size_1-of-1 slds-large-size_2-of-12 table-font-color__black">
+                                <span>$821,243</span>
+                            </div>
+                            <div id="card6-element6" class="slds-col large-screen slds-large-size_2-of-12 table-font-color__black">
+                                <span>$821,243</span>
+                            </div>
+                            <div id="card6-element7" class="slds-col large-screen slds-large-size_2-of-12 table-font-color__black">
+                                 <span>$821,243</span>
+                            </div>
+                            <div id="card6-element8" class="slds-col slds-large-size_2-of-12 large-screen table-font-color__blue">
+                                <span><i class="far fa-arrow-alt-circle-right"></i>View<i class="fas fa-ellipsis-h slds-m-left_medium"></i></span>
+                            </div>
+                        </div>
+                        <div id="card6-element9" class="slds-card__footer mobile-screen">
+                            <a class="slds-card__footer-action" href="javascript:void(0);">View All
+                            </a>
+                        </div>
+                    </article>
+                </div>    
+                <div class="slds-col slds-size_1-of-1 slds-p-bottom_small slds-p-top_large" id="card7">
+                    <article class="slds-card slds-p-bottom_small slds-p-top_large slds-m-left_large slds-m-right_large large-screen__card">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-col_bump-right slds-p-left_medium mobile-screen">
+                                <i class="fas fa-ellipsis-h table-font-color__gray "></i>
+                            </div>
+                            <div id="card7-element1" class="slds-col slds-size_1-of-1 slds-large-size_1-of-12" >
+                                <div class="slds-media__figure slds-align_absolute-center">
+                                    <img class="profile" src="/Users/poonamrathore/Desktop/UI Assignment/images/profile1.jpeg" alt="profile-pic"/>
+                                </div>
+                            </div>
+                            <div id="card7-element2" class="slds-col slds-align_absolute-center slds-size_1-of-1 slds-large-size_3-of-12 table-font-color__black large-screen_table-element">
+                                <span>Gypsy Hardinge</span>
+                            </div>
+                            <div id="card7-element3" class="slds-col slds-align_absolute-center slds-size_1-of-1 mobile-screen table-font-color__gray">
+                                <span>abcdef@xyz.com</span>
+                            </div>
+                            <div id="card7-element4" class="slds-col slds-align_absolute-center slds-size_1-of-1 mobile-screen table-font-color__gray">
+                                <span>Total Contribution</span>
+                            </div>
+                            <div id="card7-element5" class="slds-col slds-align_absolute-center slds-size_1-of-1 slds-large-size_2-of-12 table-font-color__black">
+                                <span>$821,243</span>
+                            </div>
+                            <div id="card7-element6" class="slds-col large-screen slds-large-size_2-of-12 table-font-color__black">
+                                <span>$821,243</span>
+                            </div>
+                            <div id="card7-element7" class="slds-col large-screen slds-large-size_2-of-12 table-font-color__black">
+                                 <span>$821,243</span>
+                            </div>
+                            <div id="card7-element8" class="slds-col slds-large-size_2-of-12 large-screen table-font-color__blue">
+                                <span><i class="far fa-arrow-alt-circle-right"></i>View<i class="fas fa-ellipsis-h slds-m-left_medium"></i></span>
+                            </div>
+                        </div>
+                        <div id="card7-element9" class="slds-card__footer mobile-screen">
+                            <a class="slds-card__footer-action" href="javascript:void(0);">View All
+                            </a>
+                        </div>
+                    </article>
+                </div>    
+                <div class="slds-col slds-size_1-of-1 slds-p-bottom_small slds-p-top_large" id="card8">
+                    <article class="slds-card slds-p-bottom_small slds-p-top_large slds-m-left_large slds-m-right_large large-screen__card">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-col_bump-right slds-p-left_medium mobile-screen">
+                                <i class="fas fa-ellipsis-h table-font-color__gray "></i>
+                            </div>
+                            <div id="card8-element1" class="slds-col slds-size_1-of-1 slds-large-size_1-of-12" >
+                                <div class="slds-media__figure slds-align_absolute-center">
+                                    <img class="profile" src="/Users/poonamrathore/Desktop/UI Assignment/images/profile5.jpeg" alt="profile-pic"/>
+                                </div>
+                            </div>
+                            <div id="card8-element2" class="slds-col slds-align_absolute-center slds-size_1-of-1 slds-large-size_3-of-12 table-font-color__black large-screen_table-element">
+                                <span>Ivan Magaihaes</span>
+                            </div>
+                            <div id="card8-element3" class="slds-col slds-align_absolute-center slds-size_1-of-1 mobile-screen table-font-color__gray">
+                                <span>abcdef@xyz.com</span>
+                            </div>
+                            <div id="card8-element4" class="slds-col slds-align_absolute-center slds-size_1-of-1 mobile-screen table-font-color__gray">
+                                <span>Total Contribution</span>
+                            </div>
+                            <div id="card8-element5" class="slds-col slds-align_absolute-center slds-size_1-of-1 slds-large-size_2-of-12 table-font-color__black">
+                                <span>$821,243</span>
+                            </div>
+                            <div id="card8-element6" class="slds-col large-screen slds-large-size_2-of-12 table-font-color__black">
+                                <span>$821,243</span>
+                            </div>
+                            <div id="card8-element7" class="slds-col large-screen slds-large-size_2-of-12 table-font-color__black">
+                                 <span>$821,243</span>
+                            </div>
+                            <div id="card8-element8" class="slds-col slds-large-size_2-of-12 large-screen table-font-color__blue">
+                                <span><i class="far fa-arrow-alt-circle-right"></i>View<i class="fas fa-ellipsis-h slds-m-left_medium"></i></span>
+                            </div>
+                        </div>
+                        <div id="card8-element9" class="slds-card__footer mobile-screen">
+                            <a class="slds-card__footer-action" href="javascript:void(0);">View All
+                            </a>
+                        </div>
+                    </article>
+                </div>    
+                <div class="slds-col slds-size_1-of-1 slds-p-bottom_small slds-p-top_large" id="card9">
+                    <article class="slds-card slds-p-bottom_small slds-p-top_large slds-m-left_large slds-m-right_large large-screen__card">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-col_bump-right slds-p-left_medium mobile-screen">
+                                <i class="fas fa-ellipsis-h table-font-color__gray "></i>
+                            </div>
+                            <div id="card9-element1" class="slds-col slds-size_1-of-1 slds-large-size_1-of-12" >
+                                <div class="slds-media__figure slds-align_absolute-center">
+                                    <img class="profile" src="/Users/poonamrathore/Desktop/UI Assignment/images/profile4.jpeg" alt="profile-pic"/>
+                                </div>
+                            </div>
+                            <div id="card9-element2" class="slds-col slds-align_absolute-center slds-size_1-of-1 slds-large-size_3-of-12 table-font-color__black large-screen_table-element">
+                                <span>Chinmay Sarasvati</span>
+                            </div>
+                            <div id="card9-element3" class="slds-col slds-align_absolute-center slds-size_1-of-1 mobile-screen table-font-color__gray">
+                                <span>abcdef@xyz.com</span>
+                            </div>
+                            <div id="card9-element4" class="slds-col slds-align_absolute-center slds-size_1-of-1 mobile-screen table-font-color__gray">
+                                <span>Total Contribution</span>
+                            </div>
+                            <div id="card9-element5" class="slds-col slds-align_absolute-center slds-size_1-of-1 slds-large-size_2-of-12 table-font-color__black">
+                                <span>$821,243</span>
+                            </div>
+                            <div id="card9-element6" class="slds-col large-screen slds-large-size_2-of-12 table-font-color__black">
+                                <span>$821,243</span>
+                            </div>
+                            <div id="card9-element7" class="slds-col large-screen slds-large-size_2-of-12 table-font-color__black">
+                                 <span>$821,243</span>
+                            </div>
+                            <div id="card9-element8" class="slds-col slds-large-size_2-of-12 large-screen table-font-color__blue">
+                                <span><i class="far fa-arrow-alt-circle-right"></i>View<i class="fas fa-ellipsis-h slds-m-left_medium"></i></span>
+                            </div>
+                        </div>
+                        <div id="card9-element9" class="slds-card__footer mobile-screen">
+                            <a class="slds-card__footer-action" href="javascript:void(0);">View All
+                            </a>
+                        </div>
+                    </article>
+                </div>     
+            </div>                
+        </div>
+    </div>
+  </div> 
+</body>
+</html>
